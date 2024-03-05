@@ -21,11 +21,12 @@ public class CalculatorApplication {
 	public CommandLineRunner run (CalculatorService calculator) {
 		return args -> {
 			Scanner scanner = new Scanner(System.in);
-			while (true){
+			boolean exitApplication = false;
+			while (!exitApplication){
 				System.out.println("[1] Sumar\n[2] Restar\n[3] Multiplicar\n[4] Dividir\n[5] Salir");
 				System.out.print("Por favor, selecciona una opción (o no...): ");
 				int option = scanner.nextInt();
-				if (option == 5) break;
+				if (option == 5) exitApplication = true;
 
 				System.out.print("Escribe el primer operando. De preferencia, que sea un número.");
 				double operatorA = scanner.nextDouble();
